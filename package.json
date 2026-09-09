@@ -1,0 +1,9 @@
+{
+  "name": "portal-guru-smp-negeri-2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portal arsip dokumen kegiatan guru",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
