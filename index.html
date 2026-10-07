@@ -447,9 +447,11 @@
 
             try {
                 if (username !== 'guru' || password !== 'guru123') throw new Error('invalid-credentials');
+                sessionStorage.setItem('teacherUser', username);
                 showApp(username);
             } catch (error) {
                 if (username === 'guru' && password === 'guru123') {
+                    sessionStorage.setItem('teacherUser', username);
                     showApp(username);
                     showToast('Mode demo aktif. Jalankan server untuk menyimpan data.');
                 } else {
@@ -514,9 +516,12 @@
         });
 
         document.getElementById('logoutButton').addEventListener('click', () => {
+            sessionStorage.removeItem('teacherUser');
             appView.style.display = 'none';
             loginView.style.display = 'grid';
         });
+        const savedUser = sessionStorage.getItem('teacherUser');
+        if (savedUser) showApp(savedUser);
     </script>
 </body>
 </html>
